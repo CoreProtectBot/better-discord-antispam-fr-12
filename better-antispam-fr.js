@@ -81,7 +81,7 @@ module.exports = async (client, options) => {
                 deny: ['VIEW_CHANNEL']
               }]
             })
-              .then(m=> m.send(`Created **\`anti-spam-Logs\`** channel since a channel for reports wasn't provided from beginning when setting up the module.`))
+              .then(m=> m.send(`J'ai crée **\`anti-spam-Logs\`** afin de reporter tout spam !`))
               .catch(console.error)
   
         }catch(e){
@@ -94,11 +94,11 @@ module.exports = async (client, options) => {
         try {
             role = await m.guild.roles.create({
               data:{
-                name: "muted",
+                name: "muteds",
                 color: "#000000",
                 permissions: []
               },
-              reason: `muted role wasn't found! Created a new one!`
+              reason: `le role muteds n'a pas été trouvé !`
             })
             m.guild.channels.cache.forEach(async (thechann, id) => {
                 await thechann.updateOverwrite(role, {
@@ -109,7 +109,7 @@ module.exports = async (client, options) => {
                     SPEAK: false
                 });
             });
-           ReportChannel.send(`Created **\`muted\`** role since a role(to be applied to muted person) wasn't provided from beginning when setting up the module.`) 
+           ReportChannel.send(`J'ai crée le role **\`muteds\`** `) 
         } catch (e) {
             console.log(e.stack);
         }
@@ -120,24 +120,24 @@ module.exports = async (client, options) => {
           m.channel.send(`<@!${m.author.id}>, ${muteMsg}`);
           let muteEmbed = new MessageEmbed()
             .setAuthor(' Action | Auto Mute', `https://images-ext-2.discordapp.net/external/Wms63jAyNOxNHtfUpS1EpRAQer2UT0nOsFaWlnDdR3M/https/image.flaticon.com/icons/png/128/148/148757.png`)
-            .addField('Member muted:',`${user}`)
-            .addField(`How much time got muted?:`,`${timeMuted} seconds (10 min)`)
-            .addField('Reason of mute: ', `Spam`)
-            .addField(`When it was muted that person:`,TheDate+ " at "+ clock+" "+amORpm)
+            .addField('Membre mis en sourdine:',`${user}`)
+            .addField(`Combien de temps :`,`${timeMuted} seconds`)
+            .addField('Raison : ', `Spam`)
+            .addField(`Quand a il été muté ? :`,TheDate+ " at "+ clock+" "+amORpm)
             .setColor('#D9D900')
           ReportChannel.send(muteEmbed);
           setTimeout(()=>{
             user.roles.remove(role);
             let unmutedEmbed = new MessageEmbed()
               .setAuthor('Action | Auto Unmute')
-              .addField(`Member unmuted:`,`${user}`)
-              .addField(`Reason of unmute:`,`Time Expired(10 min)`)
+              .addField(`Membre:`,`${user}`)
+              .addField(`Raison :`,`Temps expiré !`)
               .setColor('#D9D900')
           ReportChannel.send(unmutedEmbed)
           }, timeMuted);
           return true;
        }).catch((e) => {
-          m.guild.owner.send(`Oops, seems like i don't have sufficient permissions to mute <@!${message.author.id}>!\n It can be that or another type of error happened! Tell me on github: https://github.com/MirageZoe/ \n Everything happened on ${TheDate} at ${clock} ${amORpm} with message:\n\n\`${e.message}\`\n\n *P.S: If this is the first time getting something like this, most likely because it was not set up good the log channel at beginning and didn't know where to send the reports. Do not panic, next time it will work since he created the channel where to send the reports!*`);
+          m.guild.owner.send(`Je n'ai pas les permissions suffisante pour muter <@!${message.author.id}>! `);
           return false;
       });
     }//end of user

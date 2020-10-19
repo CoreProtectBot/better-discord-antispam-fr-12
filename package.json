@@ -1,14 +1,14 @@
 {
-  "name": "better-discord-antispam",
+  "name": "better-discord-antispam-fr-new",
   "version": "2.0.0",
-  "description": "A simple module based on Michale Scofield's module: discord-anti-spam.js! While containing the same features(quick and simple setup), it adds new things like setting up a report channel, timed mutes(removed ban option and added mute & unmute automatically) and many more features are coming on the way(probably adding that ban option back later...)!",
-  "main": "better_antispam.js",
+  "description": "Un fork de better-discord-antispam en francais supportant discord js 12 !",
+  "main": "better-antispam-fr.js",
   "scripts": {
     "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MirageZoe/better-discord-antispam.git"
+    "url": "git+https://github.com/CoreProtectBot/better-discord-antispam-fr-12.git"
   },
   "keywords": [
     "better",
@@ -19,10 +19,9 @@
     "discord.js",
     "mute"
   ],
-  "author": "Mirage Zoe <asuna19yuuki@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MirageZoe/better-discord-antispam/issues"
+    "url": "https://github.com/CoreProtectBot/better-discord-antispam-fr-12/issues"
   },
-  "homepage": "https://github.com/MirageZoe/better-discord-antispam#readme"
+  "homepage": "https://github.com/CoreProtectBot/better-discord-antispam-fr-12/"
 }

@@ -1,25 +1,14 @@
-#Update: 
-The npm have been updated to work with the newest update of discord.js v12!
+Fork en francais de ce repo -> [Github a voir pour plus de rensignements](https://github.com/MirageZoe/better-discord-antispam)!
 
-Note: If the bot have muted someone for 10min, 4min have passed then randomly the bot went offline, do not forget to remove the role from user once the rest 6min are gone or the it's muted forever! (will modify this later)
+## Utiliser le module:
 
-Additional note: This version 2.0.0 is made to work with the discord.js version 12 and only that, if you try to use it with other version (lower obv), it won't work. For that, get version 1.0.6 and do not forget to fix the channel log to be "antispam-logs".
+Installer le module :
 
-Any other issues, please open it on [Github](https://github.com/MirageZoe/better-discord-antispam)!
-## better-discord-antispam.js
-A simple module based on Michael Scofield's module: discord-anti-spam.js! While containing the same efficiency(quick and simple setup), it comes with new things like setting up a report channel, timed mutes(removed ban option and added mute & unmute automatically) and many more features coming on the way!
-
-**DISCLAMER:** You can only setup 1 set of configuration per client. (That means that you can't configure settings for each server for now. You can only modify in which guild checker is run and in which checker is not run.) 
-
-
-## How to add this to your node_modules:
-To install this module type in your console command below:
 ```
-npm i better-discord-antispam
+npm i better-discord-antispam-fr-new
 ```
 
-## An example of how to set up:
-Below you will find an example that would explain everything and what you must set up! (it's not too different!)
+Configurer le module :
 
 ```js
 const Discord = require('discord.js');
@@ -54,59 +43,3 @@ client.on('message', msg => {
 
 client.login('token');
 ```
-This is the main setup you have to add in order to protect your server from unwanted people. If they send more than 3 messages within 2 seconds, they get warned. At 5 they get muted. If they send same message 7+ times, he get warned and at 10 muted. Every member from <ignoredMembers> option and everyone that has the role/roles from <ignoredRoles> are protected from system so they can spam as much as they want.
-
-## Little bit of documentation...
-
-```js
-antispam(<Client>);
-```
-This will configure module to run on its default configuration.<br>
-`<Client>` - Variable that defines `new Discord.Client()`<br>
-`antispam` - Variable that defines `require('better-discord-antispam')` <br>
-<br>
-```js
-client.emit('checkMessage', <Message>)
-```
-`<Message>` - Variable that defines the message itself. (`client.on('message', async (msg) =>{})` in this situation msg is the <Message> variable.)
-This will basically send your message to module. In fact is REQUIERED for module to run.<br>
-<br>
-```js
-antispam(client, {
-        limitUntilWarn: 3,
-        limitUntilMuted: 5,
-        interval: 2000,
-        warningMessage: "",
-        muteMessage: "",
-        maxDuplicatesWarning: 7,
-        maxDuplicatesMute: 10,
-        ignoredRoles: [],
-        ignoredMembers: [],
-		mutedRole:"",
-		timeMuted: 1000*600,
-		logChannel: ""
-      });
-```
-`antispam` - Variable that defines `require('better-discord-anti-spam')` <br>
-`<Client>` - Requiered, Discord.Client<br>
-`limitUntilWarn` - Optional, Type: Integer<br>
-`limitUntilMuted` - Optional, Type: Integer<br>
-`interval` - Optional, Type: Integer<br>
-`warningMessage` - Optonal, Type: String, Minimum 5 Characters<br>
-`muteMessage` - Optional, Type: String, Minimum 5 Characters<br>
-`maxDuplicatesWarning` - Optional, Type: Integer<br>
-`maxDuplicatesMute` - Optional, Type: Integer<br>
-`ignoredRoles` - Optional, Type: Array<br>
-`ignoredMembers`- Optional, Type: Array<br>
-`mutedRole`- Optional, Type: String<br>
-`timeMuted`- Optional, Type: Integer<br>
-`logChannel`- Optional, Type: String<br>
-<br>
-**NOTE:** The module **will** throw errors for assigning incorect types to configuration values.<br>
-<br>
-
-P.S: If you have any issues, bugs or trouble setting the module up. feel free to open an issue on [Github](https://github.com/MirageZoe/better-discord-antispam)
-
-P.S 2: This is just a release that is modified by me to suit the best my needs. If you find it on your taste, I'm happy. I'm not about to add complicated things only if I need them.
-
-P.S 3: Remember if you don't get any notification in #antispam-logs, that means you haven't added with lowercase the name of  logchannel in config (this is because discord channels cannot have uppercase for some reasons but voice channels can.)
