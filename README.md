@@ -12,7 +12,7 @@ Configurer le module :
 
 ```js
 const Discord = require('discord.js');
-const antispam = require('better-discord-antispam'); // Requiring this module.
+const antispam = require('better-discord-antispam-fr-new'); // Requiring this module.
 const client = new Discord.Client();
 
 client.on('ready', () => {

@@ -1,6 +1,6 @@
 {
   "name": "better-discord-antispam-fr-new",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Un fork de better-discord-antispam en francais supportant discord js 12 !",
   "main": "better-antispam-fr.js",
   "scripts": {
